@@ -1,6 +1,9 @@
 import jax 
 import jax.numpy as jnp 
+import numpy as np 
 
-key=jax.random.PRNGKey(3)
 
-print(jax.random.normal(key,(1,1)))
+array=jnp.array([1,2,3,0,0,2])
+array2=jnp.array([1,2,3,0,0,2])
+
+print(array@array2)

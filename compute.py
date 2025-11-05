@@ -1,6 +1,6 @@
 import jax 
 import jax.numpy as jnp 
-from jax import Array
+from jax import Array,jit
 
 class compute : 
 
@@ -14,7 +14,8 @@ class compute :
         return self.w@X+self.b
     
 
-    def MSE_loss(self,w,b,X,y) :
+    @jit
+    def MSE_loss(self,w,b,X,y)-> float  :
         pred=w@X+b
         return jnp.mean((pred -y)**2) 
 
@@ -22,7 +23,7 @@ class compute :
 
     def gradient_descent(self,X,y,iter=100,lr=0.001) : 
 
-        grad=jax.grad(self.MSE_loss,argnums=(0,1))
+        grad=jax.jit(jax.grad(self.MSE_loss,argnums=(0,1)))
 
         for i in range(iter): 
             dw,db=grad(self.w,self.b,X,y)

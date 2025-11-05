@@ -4,9 +4,9 @@ from jax import Array,jit
 
 class compute : 
 
-    def __init__(self,w:Array,b=1): 
-        self.w=w
-        self.b=b
+    def __init__(self,n): 
+        self.w=jnp.zeros(1,n)
+        self.b=0
 
 
     def lr_model(self,X)-> Array : 

@@ -33,8 +33,8 @@ Y : the Price
 key=input("Give a PRNG key (default=22) :")
 key=jax.random.PRNGKey(int(key) if key.strip() else 22)
 
-n=input("input the numbre of samples (default=10_000)")
-n= int(n) if n.strip() else 10_000 
+n=input("input the numbre of samples (default=100_000)")
+n= int(n) if n.strip() else 100_000 
 
 age_key,mileage_key,engine_size_key,horsepower_key,fuel_type_key,transmission_type_key,number_of_doors_key,\
 brand_reputation_score_key,accident_history_key,fuel_efficiency_key,price_key=jax.random.split(key,11)
